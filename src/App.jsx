@@ -30,7 +30,7 @@ function App() {
               <label htmlFor="linkedin">LinkedIn</label>
               <input type="url" id='linkedin'/>
             </div>
-            <div className="buttons">
+            <div className="buttons-container">
               <button className="btn save">Save</button>
               <button className="btn cancel">Cancel</button>
               <button className="btn delete">Delete</button>
@@ -72,7 +72,7 @@ function App() {
               <label htmlFor="achievement-date">Date</label>
               <input type="date" id='achievement-date'/>
             </div>
-            <div className="buttons">
+            <div className="buttons-container">
               <button className="btn save">Save</button>
               <button className="btn cancel">Cancel</button>
               <button className="btn delete">Delete</button>
@@ -106,7 +106,7 @@ function App() {
               <label htmlFor="location">Location</label>
               <input type="text" id='location'/>
             </div>
-            <div className="buttons">
+            <div className="buttons-container">
               <button className="btn save">Save</button>
               <button className="btn cancel">Cancel</button>
               <button className="btn delete">Delete</button>
@@ -118,10 +118,10 @@ function App() {
         <div className="cv-display">
           <section className="cv-header">
             <h1>FULL NAME</h1>
-            <p>Position Title</p>
+            <p>POSITION TITLE</p>
           </section>
           <section className="cv-about">
-            <div className="about-text">
+            <div className="cv-about-text">
               <h2>ABOUT ME</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero deleniti consectetur sint quibusdam officiis pariatur blanditiis veritatis aspernatur laboriosam.</p>
             </div>
@@ -142,7 +142,7 @@ function App() {
           </section>
           <section className='cv-education'>
             <h2 className='section-title'>EDUCATION</h2>
-            <div className="wrapper">
+            <div className="section-item-container">
               <div className="section-item">
                 <h3>Master Degree in XX</h3>
                 <p>Jun 2010 - March 2012</p>
@@ -178,11 +178,11 @@ function App() {
             <h2 className='section-title'>WORK EXPERIENCE</h2>
             <div className="section-item company-item">
               <div className="company-heading">
-                <div className="">
+                <div className="company-heading-right">
                   <h3>COMPANY</h3>
                   <p>Indicate your role/position in the company</p>
                 </div>
-                <div className="">
+                <div className="company-heading-left">
                   <p>Location</p>
                   <p>Date</p>
                 </div>
