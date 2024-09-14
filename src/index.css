@@ -1,0 +1,177 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+aside {
+  width: 30%;
+  padding: 0 1rem;
+}
+
+input {
+  padding: .5rem;
+}
+
+main {
+  width: 70%;
+}
+
+ul {
+  list-style: outside;
+  margin-left: 1rem;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.form-container {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: solid .1rem black;
+  border-radius: 1rem;
+}
+
+.form-input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.achievement {
+  gap: .5rem;
+  padding-left: 1rem;
+  border-left: solid .1rem #000;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: .3rem 0;
+}
+
+.btn {
+  background-color: #fff;
+  padding: .5rem;
+  border: solid .1rem black;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(164, 162, 162);
+}
+
+.cv-display {
+  width: 744px;
+  height: 1052px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas: 
+    'header header header'
+    'about about about'
+    'education work work'
+    'education work work'
+    'education work work'
+    'education work work';
+  padding: 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, .25);
+}
+
+.cv-header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid .2rem #000;
+}
+
+.cv-about {
+  grid-area: about;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: solid .2rem #000;
+}
+
+.about-text {
+  width: 60%;
+}
+
+.contact-icons {
+  width: 30%;
+}
+
+.contact-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cv-education {
+  grid-area: education;
+  border-right: solid .2rem #000;
+}
+
+.section-title {
+  padding: .5rem 1rem;
+  border-bottom: solid .2rem #000;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.section-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-work {
+  grid-area: work;
+}
+
+.company-item {
+  padding: 1rem;
+}
+
+.company-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-skills {
+  padding-right: 1rem;
+}
