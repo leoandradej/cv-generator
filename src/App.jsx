@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './index.css'
-import './reset.css'
 import CV from './components/CV';
 import Sidebar from './components/Sidebar';
 
