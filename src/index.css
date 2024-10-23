@@ -157,10 +157,9 @@ ul {
   height: 1052px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-template-areas: 
-    'header header header'
-    'about about about'
+    'personal personal personal'
     'education work work'
     'education work work'
     'education work work'
@@ -169,35 +168,44 @@ ul {
   box-shadow: 0 0 .5rem rgba(0, 0, 0, .25);
 }
 
+.cv-personal {
+  grid-area: personal;
+}
+
 .cv-header {
-  grid-area: header;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 1rem;
   border-bottom: solid .2rem #000;
 }
 
 .cv-about {
   grid-area: about;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 1rem;
   border-bottom: solid .2rem #000;
 }
 
 .cv-about-text {
-  width: 60%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: .5rem;
 }
 
 .contact-icons {
-  width: 40%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .contact-icon {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
 }
@@ -236,6 +244,20 @@ ul {
 .company-heading {
   display: flex;
   justify-content: space-between;
+}
+
+.company-heading-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  gap: .5rem;
+}
+
+.company-heading-left {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 
 .company-skills {

@@ -1,17 +1,18 @@
 import { useState } from "react"
 
-const SkillsForm = ({ onSubmit, data }) => {
+const SkillsForm = ({ onSubmit, data, handleEdit }) => {
     const [formActive, setFormActive] = useState(false)
     
     const handleSubmit = e => {
         e.preventDefault()
 
-        onSubmit(data)
+        onSubmit(e.target)
     }
 
     const handleChange = e => {
         data = e.target.value
         console.log(data)
+        handleEdit('skills', data)
     }
 
     return (
@@ -21,10 +22,10 @@ const SkillsForm = ({ onSubmit, data }) => {
                 <i className={`fa-solid fa-angle-down ${formActive && 'active'}`} onClick={() => setFormActive(!formActive)}></i>
             </div>
             <div className="form-items-wrapper">
-                <form className="form" id="skills-form" onSubmit={handleSubmit}>
+                <form className="form" id="skills" onSubmit={handleSubmit}>
                     <div className="form-input-field">
                         <label htmlFor="skills">Skills</label>
-                        <textarea id='skills' name="skills" placeholder={data} onChange={handleChange}/>
+                        <textarea id='skills' name="skills" value={data.join(', ')} onChange={handleChange}/>
                     </div>
                     <div className="buttons-container">
                         <button className="btn save">Save</button>

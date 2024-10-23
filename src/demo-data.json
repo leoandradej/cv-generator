@@ -1,0 +1,71 @@
+{
+    "personal": {
+        "fullName": "Full Name",
+        "about": "Similar to resume summary - about me is an introduction that provides a brief snapshot of your professional background, relevant skills, and key accomplishments.",
+        "phone": "123-456-7890",
+        "email": "person@gmail.com",
+        "linkedin": "linkedin.com/person"
+    },
+    "education": [
+        {
+            "id": "bd2a2b1d-455c-4742-929a-2c8aa498fd01",
+            "school": "School Name",
+            "degree": "Masters Degree in ...",
+            "schoolStartDate": "Month/Year",
+            "schoolEndDate": "Month/Year",
+            "schoolLocation": "Location"
+        },
+        {
+            "id": "e9969c02-4b8a-40ca-86ae-9ea06dd41660",
+            "school": "School Name",
+            "degree": "Bachelors Degree in ...",
+            "schoolStartDate": "Month/Year",
+            "schoolEndDate": "Month/Year",
+            "schoolLocation": "Location"
+        }
+    ],
+    "work": [
+        {
+            "id": "78772ab1-5fd6-4903-aaf7-51bb91bbe965",
+            "companyName": "Company Name",
+            "position": "Indicate your role/position in the company",
+            "jobDescription": "Including relevant work experience on your resume is important because it shows hiring managers you have understood the requirements of the job.",
+            "jobStartDate": "Month/Year",
+            "jobEndDate": "Month/Year",
+            "jobLocation": "Location"
+        },
+        {
+            "id": "32a0b0c3-f279-4f42-8ccc-1bf901bf109c",
+            "companyName": "Company Name",
+            "position": "Indicate your role/position in the company",
+            "jobDescription": "Including relevant work experience on your resume is important because it shows hiring managers you have understood the requirements of the job.",
+            "jobStartDate": "Month/Year",
+            "jobEndDate": "Month/Year",
+            "jobLocation": "Location"
+        },
+        {
+            "id": "00b47c2d-331c-4731-be11-72f921487c57",
+            "companyName": "Company Name",
+            "position": "Indicate your role/position in the company",
+            "jobDescription": "Including relevant work experience on your resume is important because it shows hiring managers you have understood the requirements of the job.",
+            "jobStartDate": "Month/Year",
+            "jobEndDate": "Month/Year",
+            "jobLocation": "Location"
+        }
+    ],
+    "skills": ["Time management", "Communication", "Critical thinking", "Analytics", "Seo", "Project management"],
+    "achievements": [
+        {
+            "id": "c3847e50-7c65-4658-ab6c-81a61233f908",
+            "achievement": "Your achievement",
+            "achievementLocation": "Location",
+            "achievementDate": "Month/Year"
+        },
+        {
+            "id": "89e40a36-8dd9-4bd0-93b2-8aab640032f1",
+            "achievement": "Your achievement",
+            "achievementLocation": "Location",
+            "achievementDate": "Month/Year"
+        }
+    ]
+}
