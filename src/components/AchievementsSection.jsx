@@ -56,7 +56,7 @@ const AchievementsSection = ({ onSubmit, data, handleEdit, handleDelete}) => {
                 {showForm && (
                     <form className="form" id="achievements" onSubmit={handleSubmit}>
                         <div className="form-input-field">
-                            <label htmlFor="achievement">Achievements</label>
+                            <label htmlFor="achievement">Achievement</label>
                             <input type="text" id='achievement' name='achievement'/>
                         </div>
                         <div className="form-input-field">

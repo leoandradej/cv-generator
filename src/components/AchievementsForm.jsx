@@ -20,7 +20,7 @@ const AchievementsForm = ({ onSubmit, data, displayEditForm, itemToUpdate, handl
     return (
         <form className="form" id="achievements" onSubmit={handleSubmit}>
             <div className="form-input-field">
-                <label htmlFor="achievement">Achievements</label>
+                <label htmlFor="achievement">Achievement</label>
                 <input type="text" id='achievements' name='achievement' value={itemToUpdate.achievement} onChange={handleChange}/>
             </div>
             <div className="form-input-field">

@@ -24,7 +24,7 @@ const SkillsForm = ({ onSubmit, data, handleEdit }) => {
             <div className="form-items-wrapper">
                 <form className="form" id="skills" onSubmit={handleSubmit}>
                     <div className="form-input-field">
-                        <label htmlFor="skills">Skills</label>
+                        <label htmlFor="skills"><span>Insert a comma and a space after each skill.</span></label>
                         <textarea id='skills' name="skills" value={data.join(', ')} onChange={handleChange}/>
                     </div>
                     <div className="buttons-container">

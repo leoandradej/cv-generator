@@ -44,6 +44,11 @@ ul {
   margin-left: 1rem;
 }
 
+span {
+  color: #767575;
+  font-size: .8rem;
+}
+
 #root {
   max-width: 1200px;
   margin: 0 auto;
@@ -134,6 +139,7 @@ ul {
 .form-input-field {
   display: flex;
   flex-direction: column;
+  gap: .5rem;
 }
 
 .achievement {
