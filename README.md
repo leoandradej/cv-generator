@@ -1,8 +1,31 @@
-# React + Vite
+# CV Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based application that allows users to generate a CV (Curriculum Vitae) or resume. It provides a user-friendly interface to input personal information, education, work experience, skills, and achievements, and dynamically generates a formatted CV.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
+[View Live Application](https://leoandradej.github.io/cv-generator/)
+
+---
+
+## Features
+
+* **Personal Information:** Input name, contact details, and a personal summary.
+* **Education:** Add and manage education history, including school names, degrees, and dates.
+* **Work Experience:** Detail work history with company names, job titles, descriptions, and employment dates.
+* **Skills:** List relevant skills.
+* **Achievements:** Showcase accomplishments and awards.
+* **Dynamic CV Generation:** The CV is generated in real-time as the user inputs data.
+* **Edit and Delete Entries:** Users can modify or remove existing entries in each section.
+* **Local Storage:** Data is saved to local storage, preserving information across sessions.
+
+---
+
+## Technologies Used
+
+* React
+* CSS
+* HTML
+* JavaScript
+* UUID (for generating unique IDs)

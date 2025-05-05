@@ -4,35 +4,40 @@ import EducationForm from "./EducationForm";
 const EducationSection = ({ onSubmit, data, handleEdit, handleDelete }) => {
     const [showAddBtn, setShowAddBtn] = useState(false)
     const [showForm, setShowForm] = useState(false)
-    const [itemToUpdate, setItemToUpdate] = useState()
+    const [itemToUpdate, setItemToUpdate] = useState(null)
     const [editActive, setEditActive] = useState(false)
     const [formActive, setFormActive] = useState(false)
     
-    const displayForm = () => {
+    const toggleAddForm = () => {
         setShowAddBtn(!showAddBtn)
         setShowForm(!showForm)
     }
 
-    const displayEditForm = () => {
+    const cancelEditForm = () => {
         setShowAddBtn(!showAddBtn)
         setEditActive(!editActive)
-        handleEdit('education')
+        setItemToUpdate(null)
     }
     
     const editItem = e => {
+        const getItem = data.find(({ id }) => id === e.target.id)
+        setItemToUpdate(getItem)
         setShowAddBtn(!showAddBtn)
         setEditActive(!editActive)
-    
-        const getItem = data.find(({ id }) => id === e.target.id)
-    
-        setItemToUpdate(getItem)
     }
     
     const handleSubmit = e => {
         e.preventDefault();
+        const form = e.target
+        const formData = new FormData(form)
+        const newData = Object.fromEntries(formData.entries())
+
+        onSubmit({
+            formId: form.id,
+            newData
+        })
         
-        onSubmit(e.target)
-        displayForm()
+        toggleAddForm()
     }
 
     return (
@@ -52,7 +57,7 @@ const EducationSection = ({ onSubmit, data, handleEdit, handleDelete }) => {
                     })
                 )}
                 {!showAddBtn && (
-                    <button className="btn add-btn" onClick={displayForm}>+</button>
+                    <button className="btn add-btn" onClick={toggleAddForm}>+</button>
                 )}
                 
                 {showForm && (
@@ -79,11 +84,25 @@ const EducationSection = ({ onSubmit, data, handleEdit, handleDelete }) => {
                         </div>
                         <div className="buttons-container">
                             <button className="btn add">Add</button>
-                            <button className="btn cancel" onClick={() => displayForm()}>Cancel</button>
+                            <button
+                                className="btn cancel"
+                                onClick={toggleAddForm}
+                            >
+                                Cancel
+                            </button>
                         </div>
                     </form>
                 )}
-                {editActive && <EducationForm onSubmit={handleEdit} data={data} displayEditForm={displayEditForm} itemToUpdate={itemToUpdate} handleEdit={handleEdit} handleDelete={handleDelete}/>}
+                {editActive && (
+                    <EducationForm
+                        onSubmit={handleEdit}
+                        data={data}
+                        cancelEditForm={cancelEditForm}
+                        itemToUpdate={itemToUpdate}
+                        setItemToUpdate={setItemToUpdate}
+                        handleDelete={handleDelete}
+                    />
+                )}
             </div>
         </div>
     )

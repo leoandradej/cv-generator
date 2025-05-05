@@ -1,8 +1,8 @@
-const AchievementsForm = ({ onSubmit, data, displayEditForm, itemToUpdate, handleEdit, handleDelete }) => {
+const AchievementsForm = ({ onSubmit, data, cancelEditForm, itemToUpdate, setItemToUpdate, handleDelete }) => {
 
     const handleChange = e => {
-        itemToUpdate[e.target.name] = e.target.value
-        handleEdit(e.target.id)
+        const { name, value } = e.target
+        setItemToUpdate(prev => ({ ...prev, [name]: value }))
     }
 
     const deleteItem = (formId, item) => {
@@ -10,31 +10,58 @@ const AchievementsForm = ({ onSubmit, data, displayEditForm, itemToUpdate, handl
         handleDelete(formId, getItems)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
-        
-        onSubmit(e.target.id)
-        displayEditForm()
+        onSubmit('achievements', itemToUpdate)
+        cancelEditForm()
     }
 
     return (
         <form className="form" id="achievements" onSubmit={handleSubmit}>
             <div className="form-input-field">
                 <label htmlFor="achievement">Achievement</label>
-                <input type="text" id='achievements' name='achievement' value={itemToUpdate.achievement} onChange={handleChange}/>
+                <input
+                    type="text"
+                    id='achievements'
+                    name='achievement'
+                    value={itemToUpdate.achievement}
+                    onChange={handleChange}
+                />
             </div>
             <div className="form-input-field">
                 <label htmlFor="achievement-location">Location</label>
-                <input type="text" id='achievements' name='achievementLocation' value={itemToUpdate.achievementLocation} onChange={handleChange}/>
+                <input
+                    type="text"
+                    id='achievements'
+                    name='achievementLocation'
+                    value={itemToUpdate.achievementLocation}
+                    onChange={handleChange}
+                />
             </div>
             <div className="form-input-field">
                 <label htmlFor="achievement-date">Date</label>
-                <input type="text" id='achievements' name='achievementDate' value={itemToUpdate.achievementDate} onChange={handleChange}/>
+                <input
+                    type="text"
+                    id='achievements'
+                    name='achievementDate'
+                    value={itemToUpdate.achievementDate}
+                    onChange={handleChange}
+                />
             </div>
             <div className="buttons-container">
                 <button className="btn save">Save</button>
-                <button className="btn cancel" onClick={() => displayEditForm()}>Cancel</button>
-                <button className="btn delete" onClick={() => deleteItem('achievements', itemToUpdate)}>Delete</button>
+                <button
+                    className="btn cancel"
+                    onClick={cancelEditForm}
+                >
+                    Cancel
+                </button>
+                <button
+                    className="btn delete"
+                    onClick={() => deleteItem('achievements', itemToUpdate)}
+                >
+                    Delete
+                </button>
             </div>
         </form>
     )

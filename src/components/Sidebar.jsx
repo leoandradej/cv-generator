@@ -4,13 +4,21 @@ import PersonalForm from "./PersonalForm"
 import SkillsForm from "./SkillsForm"
 import WorkSection from "./WorkSection"
 
-const Sidebar = ({ onSubmit, handleSubmitSkills, personalData, educationData, workData, skillsData, achievementsData, handleEditPersonal, handleEditSkills, handleEdit, handleDelete }) => {
+const Sidebar = ({ 
+        onSubmit,
+        personalData,
+        educationData,
+        workData,
+        skillsData,
+        achievementsData,
+        handleEdit,
+        handleDelete }) => {
     return (
         <aside className="sidebar">
-            <PersonalForm onSubmit={onSubmit} data={personalData} handleEdit={handleEditPersonal} />
+            <PersonalForm onSubmit={onSubmit} data={personalData}/>
             <EducationSection onSubmit={onSubmit} data={educationData} handleEdit={handleEdit} handleDelete={handleDelete} />
             <WorkSection onSubmit={onSubmit} data={workData} handleEdit={handleEdit} handleDelete={handleDelete} />
-            <SkillsForm onSubmit={handleSubmitSkills} data={skillsData} handleEdit={handleEditSkills} />
+            <SkillsForm onSubmit={onSubmit} data={skillsData} />
             <AchievementsSection onSubmit={onSubmit} data={achievementsData} handleEdit={handleEdit} handleDelete={handleDelete} />
         </aside>
     )

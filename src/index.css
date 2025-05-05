@@ -205,6 +205,7 @@ span {
   grid-area: about;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
   border-bottom: solid .2rem #000;
@@ -223,6 +224,7 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .contact-icon {

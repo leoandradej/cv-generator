@@ -2,53 +2,31 @@ import { useEffect, useState } from 'react';
 import './index.css'
 import CV from './components/CV';
 import Sidebar from './components/Sidebar';
+import demoData from './demo-data.json';
 
 function App() {
 
   const [data, setData] = useState(() => {
-    const localValue = localStorage.getItem("ITEMS")
-    if (localValue == null) {
-      return {
-        personal: {},
-        education: [],
-        work: [],
-        skills: [],
-        achievements: []
-      }
-    }
-    return JSON.parse(localValue)
+    const storedData = localStorage.getItem("cv-data")
+    return storedData ? JSON.parse(storedData) : demoData
   })
 
   useEffect(() => {
-    localStorage.setItem("ITEMS", JSON.stringify(data))
+    localStorage.setItem("cv-data", JSON.stringify(data))
   }, [data])
 
-  const handleEditPersonal = (formId) => {
-    setData(currentData => {
+  const handleEdit = (formId, updatedItem) => {
+    setData((currentData) => {
+      const updatedArray = currentData[formId].map((item) =>
+        item?.id === updatedItem.id ? updatedItem : item
+      );
+  
       return {
         ...currentData,
-        [formId]: currentData[formId]
-      }
-    })
-  }
-
-  const handleEditSkills = (formId, newData) => {
-    setData(currentData => {
-      return {
-        ...currentData,
-        [formId]: [newData]
-      }
-    })
-  }
-
-  const handleEdit = (formId) => {
-    setData(currentData => {
-      return {
-        ...currentData,
-        [formId]: [...currentData[formId]]
-      }
-    })
-  }
+        [formId]: updatedArray,
+      };
+    });
+  };  
 
   const handleDelete = (formId, newData) => {
     setData(currentData => {
@@ -59,39 +37,42 @@ function App() {
     })
   }
 
-  const handleSubmit = form => {
-    const formData = new FormData(form)
-    const newData = Object.fromEntries(formData)
-
-    if (form.id === 'personal') {
-      setData(currentData => {
-        return {
-          ...currentData,
-          [form.id]: newData
-        }
-      })
-    } else if (form.id === 'skills') {
-      const formattedValue = newData.skills.split(', ')
-      setData(currentData => {
-        return {
-          ...currentData,
-          [form.id]: formattedValue
-        }
-      })
+  const handleSubmit = ({ formId, newData }) => {
+    if (formId === 'personal' || formId === 'skills') {
+      setData(currentData => ({
+        ...currentData,
+        [formId]: newData
+      }))
     } else {
-      setData(currentData => {
-        return {
-          ...currentData,
-          [form.id]: [...currentData[form.id], { id: crypto.randomUUID(), ...newData }]
-        }
-      })
+      setData(currentData => ({
+        ...currentData,
+        [formId]: [
+          ...currentData[formId], 
+          { id: crypto.randomUUID(), ...newData }
+        ]
+      }))
     }  
   }
 
   return (
     <>
-      <Sidebar onSubmit={handleSubmit} handleSubmitSkills={handleSubmit} personalData={data.personal} educationData={data.education} workData={data.work} skillsData={data.skills} achievementsData={data.achievements} handleEditPersonal={handleEditPersonal} handleEditSkills={handleEditSkills} handleEdit={handleEdit} handleDelete={handleDelete} />
-      <CV personalData={data.personal} educationData={data.education} workData={data.work} skillsData={data.skills} achievementsData={data.achievements} />
+      <Sidebar
+        onSubmit={handleSubmit}
+        personalData={data.personal}
+        educationData={data.education}
+        workData={data.work}
+        skillsData={data.skills}
+        achievementsData={data.achievements}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+      <CV
+        personalData={data.personal}
+        educationData={data.education}
+        workData={data.work}
+        skillsData={data.skills}
+        achievementsData={data.achievements}
+      />
     </>
   )
 }
